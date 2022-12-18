@@ -1,17 +1,9 @@
 package com.josh.mr.wc
 
 import org.apache.spark.rdd.RDD
-import org.apache.spark.{SparkConf, SparkContext}
 import org.junit.Test
 
-class WordCountTest {
-
-  private def getSparkContext: SparkContext = {
-    val sparkConf = new SparkConf()
-      .setMaster("local")
-      .setAppName("WordCount")
-    new SparkContext(sparkConf)
-  }
+class WordCountTest extends BaseSparkTest {
 
   @Test
   def wordCount1(): Unit = {
