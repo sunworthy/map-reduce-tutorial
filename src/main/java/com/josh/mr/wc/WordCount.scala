@@ -89,10 +89,16 @@ object WordCount {
     sc.stop()
   }
 
+  private def wordCount4(): Unit = {
+    val sc = getSparkContext
+    sc.textFile("data/txt/").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).collect().foreach(println)
+  }
+
 
   def main(args: Array[String]): Unit = {
-    wordCount1()
-    wordCount2()
-    wordCount3()
+//    wordCount1()
+//    wordCount2()
+//    wordCount3()
+    wordCount4()
   }
 }
